@@ -1,8 +1,8 @@
 namespace app;
 
-public enum PaintColour
+public enum PaintColours
 {
     Red,
     Green,
-    Blue    
+    Blue
 }

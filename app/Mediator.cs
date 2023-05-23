@@ -1,14 +1,18 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace app;
 
 public class Mediator : IMediator
 {
-    public void Notify(Paint paint){
-        
+    private readonly Canvas _canvas;
+    private readonly PaintMixer _paintMixer;
+
+    public Mediator(Canvas canvas, PaintMixer paintMixer)
+    {
+        _canvas = canvas;
+        _paintMixer = paintMixer;
     }
-    
+
+    public void Notify()
+    {
+        _canvas.OutputColour(_paintMixer.GetMixedPaintColour());
+    }
 }

@@ -1,11 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace app;
 
 public class Paint
 {
-    
+    public PaintColours PaintColour { get; set; }
+    public byte Value { get; set; }
 }
