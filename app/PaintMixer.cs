@@ -39,9 +39,9 @@ public class PaintMixer
     private byte GetUpdatedPaintColour(byte existingValue, byte newValue)
     {
         int val = existingValue + newValue;
-        if (val > 256)
+        if (val > 255)
         {
-            val = 256;
+            val = 255;
         }
         return Convert.ToByte(val);
     }
