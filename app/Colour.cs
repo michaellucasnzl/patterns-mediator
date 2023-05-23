@@ -14,4 +14,9 @@ public class Colour
         var colour = (Colour)obj;
         return (colour.Red == Red && colour.Green == Green && colour.Blue == Blue);
     }
+
+    public override int GetHashCode()
+    {
+        return System.HashCode.Combine(Red, Green, Blue);
+    }
 }

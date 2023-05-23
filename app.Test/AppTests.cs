@@ -20,9 +20,9 @@ public class AppTests
         string colour2Value, string colour3, string colour3Value,
         string redResult, string greenResult, string blueResult)
     {
-        _paintMixer.AddPaint(new Paint { PaintColour =Enum.Parse<PaintColours>(colour1), Value = byte.Parse(colour1Value) });
-        _paintMixer.AddPaint(new Paint { PaintColour =Enum.Parse<PaintColours>(colour2), Value = byte.Parse(colour2Value) });
-        _paintMixer.AddPaint(new Paint { PaintColour =Enum.Parse<PaintColours>(colour3), Value = byte.Parse(colour3Value) });
+        _paintMixer.AddPaint(new Paint { PaintColour = Enum.Parse<PaintColours>(colour1), Value = byte.Parse(colour1Value) });
+        _paintMixer.AddPaint(new Paint { PaintColour = Enum.Parse<PaintColours>(colour2), Value = byte.Parse(colour2Value) });
+        _paintMixer.AddPaint(new Paint { PaintColour = Enum.Parse<PaintColours>(colour3), Value = byte.Parse(colour3Value) });
         _paintMixer.MixPaint();
 
         var mixedPaint = _paintMixer.GetMixedPaintColour();
@@ -32,5 +32,5 @@ public class AppTests
         Assert.Equal(byte.Parse(greenResult), mixedPaint.Green);
 
         Assert.True(mixedPaint.Equals(_canvas.BackgroundColour));
-    }   
+    }
 }
