@@ -1,19 +1,17 @@
-using Moq;
-
 namespace app.Test;
-
 
 public class AppTests
 {
-    private readonly Mock<IMediator> _mediator = new Mock<IMediator>();
     private readonly PaintMixer _paintMixer;
     private readonly Canvas _canvas = new Canvas();
     private readonly List<CsvDataAttribute> _testData = new List<CsvDataAttribute>();
 
     public AppTests()
     {
-        var mediator = _mediator.Object;
+        var mediator = new Mediator();
         _paintMixer = new PaintMixer(mediator);
+        mediator.PaintMixer = _paintMixer;
+        mediator.Canvas = _canvas;
     }
 
     [Theory]
@@ -27,10 +25,12 @@ public class AppTests
         _paintMixer.AddPaint(new Paint { PaintColour =Enum.Parse<PaintColours>(colour3), Value = byte.Parse(colour3Value) });
         _paintMixer.MixPaint();
 
-        var result = _paintMixer.GetMixedPaintColour();
+        var mixedPaint = _paintMixer.GetMixedPaintColour();
 
-        Assert.Equal(byte.Parse(redResult), result.Red);
-        Assert.Equal(byte.Parse(blueResult), result.Blue);
-        Assert.Equal(byte.Parse(greenResult), result.Green);
+        Assert.Equal(byte.Parse(redResult), mixedPaint.Red);
+        Assert.Equal(byte.Parse(blueResult), mixedPaint.Blue);
+        Assert.Equal(byte.Parse(greenResult), mixedPaint.Green);
+
+        Assert.True(mixedPaint.Equals(_canvas.BackgroundColour));
     }   
 }

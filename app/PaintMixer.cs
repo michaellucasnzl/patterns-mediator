@@ -34,7 +34,7 @@ public class PaintMixer
     public Colour GetMixedPaintColour()
     {
         return _mixedPaintColour;
-    }
+    }   
 
     private byte GetUpdatedPaintColour(byte existingValue, byte newValue)
     {

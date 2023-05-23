@@ -2,8 +2,10 @@ namespace app;
 
 public class Canvas
 {
-    public void OutputColour(Colour colour)
+    public Colour? BackgroundColour { get; set; }
+     
+    public void SetBackgroundColour(Colour colour)
     {
-        Console.WriteLine($"{colour.Red},{colour.Green},{colour.Blue}");
+        BackgroundColour = colour;
     }
 }

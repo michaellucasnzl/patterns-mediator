@@ -2,14 +2,14 @@ namespace app;
 
 public class Mediator : IMediator
 {
-    public Canvas? _canvas { get; set; }
-    public PaintMixer? _paintMixer { get; set; }
+    public Canvas? Canvas { get; set; }
+    public PaintMixer? PaintMixer { get; set; }
 
     public void Notify()
     {
-        if (_canvas != null && _paintMixer != null)
+        if (Canvas != null && PaintMixer != null)
         {
-            _canvas.OutputColour(_paintMixer.GetMixedPaintColour());
+            Canvas.SetBackgroundColour(PaintMixer.GetMixedPaintColour());
         }
     }
 }
